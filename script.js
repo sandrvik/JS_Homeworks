@@ -2,7 +2,7 @@
 
 let vegetables = ['Капуста', 'Репа', 'Редиска', 'Морковка'];
 
-console.log(vegetables.join(' | '))
+console.log(vegetables.join(' | '));
 
 /***** Task 2 *****/
 
@@ -14,13 +14,13 @@ console.log(newNames);
 
 /***** Task 3 *****/
 
-function hello2(name = 'гость') {
+function hello(name = 'гость') {
     return `Привет, ${name}`;
 }
 
-console.log(hello2());
+console.log(hello());
 
-console.log(hello2('Alex'));
+console.log(hello('Alex'));
 
 /***** Task 4 *****/
 

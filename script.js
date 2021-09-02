@@ -132,3 +132,24 @@ const testArr = [15, 22, 56, 0, 0, 6, 98, 56];
 const uniqueArr = testArr.getUnique(); // [15, 22, 56, 0, 6, 98]
 
 /***** Task 5 *****/
+
+const testObj = { a: 1, b: 2, c: 3, d: false, e: 0 }
+
+Object.prototype.getKeySum = function () {
+    return Object.values(this).reduce((acc, value) => {
+        if (!!value) {
+            return acc + value;
+        }
+        else return acc;
+    }, 0)
+}
+
+Object.prototype.reversKey = function () {
+    return Object.keys(this).reduce((acc, key) => {
+        acc[this[key]] = key;
+        return acc;
+    }, {})
+}
+
+console.log(testObj.getKeySum()); // 6
+console.log(testObj.reversKey()); // {0: "e", 1: "a", 2: "b", 3: "c", false: "d"}

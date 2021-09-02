@@ -83,13 +83,38 @@ function Calculator() {
     };
 }
 
-// const calc = new Calculator();
-// calc.read();
-// calc.setAction();
-// calc.doAction();
+const calc = new Calculator();
+calc.read();
+calc.setAction();
+calc.doAction();
 
 /***** Task 3 *****/
 
+function Nums(...args) {
+    this.args = args;
+}
+
+Nums.prototype.getSum = function () {
+    return this.args.reduce((acc, item) => {
+        if (Number.isInteger(item)) {
+            return acc + item;
+        }
+        else return acc;
+    }, 0)
+};
+
+Nums.prototype.myFilterReverse = function () {
+    return this.args.reduceRight((acc, item) => {
+        if (Number.isInteger(item)) {
+            return [...acc, item];
+        }
+        else return acc;
+    }, [])
+};
+
+const nums = new Nums(10, 20.2, 35, 0, 52, 176.4);
+const sum = nums.getSum(); // 97
+const newArr = nums.myFilterReverse(); // [52, 0, 35, 10]
 
 
 /***** Task 4 *****/

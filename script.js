@@ -83,10 +83,10 @@ function Calculator() {
     };
 }
 
-const calc = new Calculator();
-calc.read();
-calc.setAction();
-calc.doAction();
+// const calc = new Calculator();
+// calc.read();
+// calc.setAction();
+// calc.doAction();
 
 /***** Task 3 *****/
 
@@ -119,6 +119,16 @@ const newArr = nums.myFilterReverse(); // [52, 0, 35, 10]
 
 /***** Task 4 *****/
 
+Array.prototype.getUnique = function () {
+    return this.reduce((acc, item) => {
+        if (acc.includes(item)) {
+            return acc;
+        }
+        else return [...acc, item]
+    }, [])
+};
 
+const testArr = [15, 22, 56, 0, 0, 6, 98, 56];
+const uniqueArr = testArr.getUnique(); // [15, 22, 56, 0, 6, 98]
 
 /***** Task 5 *****/

@@ -37,6 +37,17 @@ addItems(5, 'item', holder);
 
 /***** Task 4 *****/
 
+function sampleFunc() {
+    console.log(`${arguments.callee.name}: ${arguments[0]} | ${arguments[1]}`)
+}
 
+function modificator(fn) {
+    return function () {
+        fn('test', 'sample');
+    }
+}
+
+const testFunc = modificator(sampleFunc);
+testFunc();
 
 /***** Task 5 *****/

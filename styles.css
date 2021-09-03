@@ -1,0 +1,31 @@
+#sq_container {
+    width: 300px;
+    height: 300px;
+    position: relative;
+}
+
+.square {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+}
+
+.blue {
+    background-color: #7e8aeb;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.red {
+    background-color: #ff8888;
+    top: 40px;
+    left: 40px;
+}
+
+.green {
+    background-color: #4def99;
+    bottom: 40px;
+    right: 40px;
+}

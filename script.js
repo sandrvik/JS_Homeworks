@@ -22,7 +22,18 @@ makeDiv('green', sq_container);
 
 /***** Task 3 *****/
 
+function addItems(n, className, destination) {
+    for (let item = 1; item <= n; item++) {
+        const div = document.createElement('div');
+        div.className = className;
+        div.innerHTML = item;
+        destination.append(div);
+    }
+}
 
+const holder = document.getElementById('holder');
+
+addItems(5, 'item', holder);
 
 /***** Task 4 *****/
 

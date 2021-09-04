@@ -1,7 +1,7 @@
 /***** Task 1 *****/
 
 const div = document.createElement('div');
-div.innerText = 'Click';
+div.innerText = 'Click to show image';
 document.body.append(div);
 
 const img = document.createElement('img');
@@ -67,6 +67,10 @@ console.log(sumOver(arr2, 10)) // 4
 
 /***** Task 4 *****/
 
+const inp = document.getElementById('inp');
+const btn = document.getElementById('btn');
+
+btn.addEventListener('click', () => console.log(inp.value))
 
 
 /***** Task 5 *****/

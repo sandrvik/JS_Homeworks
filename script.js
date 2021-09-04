@@ -88,6 +88,11 @@ for (let link of hrefs) {
 
 /***** Task 6 *****/
 
+const btn2 = document.getElementById('btn2');
+const div2 = document.getElementById('div2');
 
+btn2.addEventListener('click', () => {
+    div2.remove();
+})
 
 /***** Task 7 *****/

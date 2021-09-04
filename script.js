@@ -96,3 +96,47 @@ btn2.addEventListener('click', () => {
 })
 
 /***** Task 7 *****/
+
+const px = document.getElementById('px');
+const startBtn = document.getElementById('start');
+const circle = document.getElementById('circle');
+
+function inputCheckNum(input) {
+    if (!Number.isInteger(+input.value)) {
+        input.value = '';
+    }
+}
+
+function moveFigure(figure, px) {
+    if (!figure.style.left) {
+        figure.style.left = '0px'
+    }
+    const currPos = Number.parseInt(figure.style.left);
+    const destPos = currPos + px;
+    figure.style.left = `${destPos}px`;
+}
+
+function smoothMove(figure, px, speed) {
+    let interval = setInterval(() => {
+        if (figure.style.left === `${px}px`) {
+            clearInterval(interval);
+        } else moveFigure(figure, 1)
+    }, speed)
+}
+
+function checkIfOver(elem, obj) {
+    return (obj.max < +elem.value || obj.min > elem.value);
+}
+
+px.addEventListener('input', (e) => {
+    startBtn.removeAttribute('disabled');
+    inputCheckNum(e.target)
+})
+
+startBtn.addEventListener('click', () => {
+    circle.style.left = '0px';
+    if (checkIfOver(px, { min: 0, max: 600 })) {
+        px.value = 'ERROR';
+        startBtn.setAttribute('disabled', 'disabled');
+    } else smoothMove(circle, +px.value, 10);
+})

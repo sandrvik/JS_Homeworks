@@ -51,3 +51,56 @@ const testFunc = modificator(sampleFunc);
 testFunc();
 
 /***** Task 5 *****/
+
+const group = [
+    {
+        name: "Alex",
+        lastName: "Dubovyk",
+        age: 28,
+        notebook: true,
+    },
+
+    {
+        name: "John",
+        lastName: "Deer",
+        age: 34,
+        notebook: false,
+    },
+
+    {
+        name: "Ted",
+        lastName: "Philips",
+        age: 20,
+        notebook: true,
+    },
+];
+
+function objectToString() {
+    let entries = Object.entries(this);
+
+    return entries.reduce((acc, item, index, arr) => {
+        if (index === arr.length - 1) {
+            return acc + `${item[0]} - ${item[1]} | `;
+        } else return acc + `${item[0]} - ${item[1]}, `;
+    }, '')
+}
+
+function setEnumProp(obj, propName, propVal) {
+    Object.defineProperty(obj, propName, {
+        value: propVal,
+        configurable: true
+    })
+}
+
+for (let student of group) {
+    setEnumProp(student, 'toString', objectToString)
+}
+
+
+function getStudentsList(arrayOfStudents) {
+    return arrayOfStudents.reduce((str, student) => {
+        return str + student.toString()
+    }, '')
+}
+
+console.log(getStudentsList(group))

@@ -72,10 +72,19 @@ const btn = document.getElementById('btn');
 
 btn.addEventListener('click', () => console.log(inp.value))
 
-
 /***** Task 5 *****/
 
+let hrefs = document.getElementsByTagName('a');
+let span = document.createElement('span');
 
+function showHref(lnk) {
+    span.innerText = ` (${lnk.href})`;
+    lnk.append(span);
+}
+for (let link of hrefs) {
+    link.addEventListener('mouseover', (e) => showHref(e.target));
+    link.addEventListener('mouseout', () => span.remove())
+}
 
 /***** Task 6 *****/
 

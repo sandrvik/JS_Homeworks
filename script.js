@@ -30,11 +30,40 @@ img.addEventListener('mouseout', () => clearInterval(id));
 
 /***** Task 2 *****/
 
+const arr = [1, 2, 3, 0, 4, 5, 6];
 
+function sumFromEndtoZero(array) {
+    const newArr = [...array].reverse();
+    let count = 0;
+
+    for (let item of newArr) {
+        if (item === 0) {
+            break;
+        } else count = count + item;
+    }
+    return count;
+}
+
+console.log(sumFromEndtoZero(arr)); // 15
 
 /***** Task 3 *****/
 
+const arr2 = [4, 3, 3, 5, 14];
 
+function sumOver(arr, num) {
+    let sum = 0;
+    let currentIndex;
+    for (let [index, value] of arr.entries()) {
+        sum += value;
+        if (sum > num) {
+            currentIndex = index + 1;
+            break;
+        }
+    }
+    return currentIndex;
+}
+
+console.log(sumOver(arr2, 10)) // 4
 
 /***** Task 4 *****/
 

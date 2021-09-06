@@ -59,6 +59,52 @@ function printNumbers2(from, to) {
 
 /***** Task 4 *****/
 
-
+function countTo(s) {
+    let current = 0;
+    let id = setInterval(() => {
+        if (current === s) {
+            clearInterval(id)
+        } else {
+            current++;
+            console.log(`${current} sec passed.`)
+        }
+    }, 1000);
+}
 
 /***** Task 5 *****/
+
+let ul = document.getElementById('ulList');
+let btn = document.getElementById('sum');
+let inp = document.getElementById('inp');
+
+function getNumsFromUl(ul) {
+    let ulNodes = ul.children;
+    let nums = [];
+    for (let node of ulNodes) {
+        if (isFinite(node.innerText)) {
+            nums.push(+node.innerText);
+        }
+    }
+    return nums;
+}
+
+function stringOfCalc(arr) {
+    let str = '';
+
+    arr.reduce((acc, item, index, arr) => {
+        acc += item;
+        if (index + 1 === arr.length) {
+            str += `${item} = ${acc}`;
+        } else {
+            str += `${item} + `
+        }
+        return acc;
+    }, 0);
+
+    return str;
+}
+
+btn.addEventListener('click', () => {
+    const arr = getNumsFromUl(ul);
+    inp.value = stringOfCalc(arr);
+})

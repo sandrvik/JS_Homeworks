@@ -20,7 +20,19 @@ function fiboFast(n) {
 
 /***** Task 2 *****/
 
+function sumOfDigits(n) {
+    if (n <= 0) {
+        return n;
+    } else return n + sumOfDigits(n - 1);
+}
 
+function sumOfDigitsFast(n) {
+    let sum = 0;
+    for (let i = n; i > 0; i--) {
+        sum += i;
+    }
+    return sum;
+}
 
 /***** Task 3 *****/
 

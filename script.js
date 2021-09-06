@@ -36,7 +36,26 @@ function sumOfDigitsFast(n) {
 
 /***** Task 3 *****/
 
+function printNumbers(from, to) {
+    setTimeout(function show() {
+        console.log(from);
+        if (from !== to) {
+            --from;
+            setTimeout(show, 1000);
+        }
+    });
+}
 
+function printNumbers2(from, to) {
+    let id = setInterval(() => {
+        if (from < to) {
+            clearInterval(id);
+        } else {
+            console.log(from);
+            from--;
+        }
+    }, 1000);
+}
 
 /***** Task 4 *****/
 

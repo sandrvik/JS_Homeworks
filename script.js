@@ -26,7 +26,7 @@ console.log(document.cookie)
 const birth = document.getElementById('birthday');
 const submit = document.getElementById('submit');
 const timeToBirthday = document.getElementById('toBirthday');
-const birthdayDiv = document.getElementById('task2')
+const birthdayDiv = document.getElementById('task2');
 
 const nextYear = new Date().getFullYear() + 1;
 const thisYear = new Date().getFullYear();
@@ -86,6 +86,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
 /**** Task3 ****/
 
+const textarea = document.getElementById('txt');
 
+function setFieldFromStorage(field, item) {
+    const textForInput = localStorage.getItem(field);
+    if (textForInput) item.value = textForInput;
+}
+
+setFieldFromStorage('TextForInput', textarea);
+
+
+textarea.addEventListener('blur', (e) => {
+    localStorage.setItem('TextForInput', e.target.value)
+})
 
 /**** Task4 ****/

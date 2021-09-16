@@ -97,7 +97,26 @@ setFieldFromStorage('TextForInput', textarea);
 
 
 textarea.addEventListener('blur', (e) => {
-    localStorage.setItem('TextForInput', e.target.value)
+    localStorage.setItem('TextForInput', e.target.value);
 })
 
 /**** Task4 ****/
+
+function insertItemsInArray(arr, obj) {
+    for (let item in obj) {
+        arr.splice(obj[item], 0, item)
+    }
+}
+
+let array = [1, 2, 3, 4, 5];
+
+const itemsPosition = {
+    'a': 1,
+    'b': 2,
+    'c': 6,
+    'e': 8
+}
+
+insertItemsInArray(array, itemsPosition);
+
+console.log(array) // [1, 'a', 'b', 2, 3, 4, 'c', 5, 'e']
